@@ -1,6 +1,3 @@
-//
-// Created by jiyun on 2022/09/24.
-//
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -9,7 +6,7 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 17:10:13 by jiyun             #+#    #+#             */
-/*   Updated: 2022/03/29 16:47:25 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/04 18:26:36 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fdf.h"
@@ -65,7 +62,6 @@ size_t	cnt_strs(char const *str, char c)
 	}
 	return (cnt);
 }
-
 
 static char	**malloc_ret(char const *s, char c, size_t *size)
 {

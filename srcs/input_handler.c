@@ -1,21 +1,18 @@
 #include "fdf.h"
 
-void    re_init_data(t_data *data)
+void	re_init_data(t_data *data)
 {
 	data->zoom = ZOOM;
 	data->zoom_is_double = FALSE;
-
 	data->projection = ISOMETRIC;
-
 	data->x_angle = 0;
 	data->y_angle = 0;
 	data->z_angle = 0;
-
 	data->x_shift = 0;
 	data->y_shift = 0;
 }
 
-void    key_translate(int keycode, t_data *data)
+void	key_translate(int keycode, t_data *data)
 {
 	if (keycode == 123)
 		data->x_shift += 15;
@@ -27,7 +24,7 @@ void    key_translate(int keycode, t_data *data)
 		data->y_shift += 15;
 }
 
-void    key_zoom(int keycode, t_data *data)
+void	key_zoom(int keycode, t_data *data)
 {
 	if (keycode == 27 && data->zoom_is_double == TRUE)
 		data->zoom /= 1.1;
@@ -47,7 +44,7 @@ void    key_zoom(int keycode, t_data *data)
 	}
 }
 
-void key_rotate(int keycode, t_data *data)
+void	key_rotate(int keycode, t_data *data)
 {
 	if (keycode == 14)
 		data->x_angle -= 0.1;
@@ -63,11 +60,11 @@ void key_rotate(int keycode, t_data *data)
 		data->z_angle += 0.1;
 }
 
-int key_press(int keycode, t_data *data)
+int	key_press(int keycode, t_data *data)
 {
-	if (keycode == 53) //esc
+	if (keycode == 53)
 		exit(0);
-	if (keycode == 51) //delete
+	if (keycode == 51)
 		re_init_data(data);
 	if (keycode == 35)
 	{

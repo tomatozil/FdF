@@ -7,8 +7,8 @@
 
 # define TRUE 1
 # define FALSE 0
-# define WIDTH 1040
-# define HEIGHT 585
+# define WIDTH 1600
+# define HEIGHT 900
 # define BACKGROUND 0x222222
 # define ANGLE 0.52
 # define ZOOM 10

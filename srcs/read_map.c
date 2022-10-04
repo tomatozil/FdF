@@ -1,14 +1,14 @@
 #include "fdf.h"
 
-void    get_height_width(t_data *data, int fd)
+void	get_height_width(t_data *data, int fd)
 {
-	char    *line;
-	int     width;
+	char	*line;
+	int		width;
 
 	line = get_next_line(fd);
 	while (line)
 	{
-		line[ft_strlen(line) - 1] = '\0'; //
+		line[ft_strlen(line) - 1] = '\0';
 		width = cnt_strs(line, ' ');
 		if (data->width == 0)
 			data->width = width;
@@ -21,7 +21,7 @@ void    get_height_width(t_data *data, int fd)
 	}
 }
 
-void clear_all(char *line, char **strs, int i)
+void	clear_all(char *line, char **strs, int i)
 {
 	if (line)
 	{
@@ -41,15 +41,15 @@ void clear_all(char *line, char **strs, int i)
 	}
 }
 
-void fill_map(t_data *data, int **arr, int fd)
+void	fill_map(t_data *data, int **arr, int fd)
 {
-	int i;
-	int j;
-	char    *line;
-	char    **splited_chars;
+	int		i;
+	int		j;
+	char	*line;
+	char	**splited_chars;
 
 	i = 0;
-	line = get_next_line(fd); // 재귀?!
+	line = get_next_line(fd);
 	while (line && i < data->height)
 	{
 		line[ft_strlen(line) - 1] = '\0';
@@ -70,13 +70,12 @@ void fill_map(t_data *data, int **arr, int fd)
 	data->map = arr;
 }
 
-void    read_map(t_data *data, char *file)
+void	read_map(t_data *data, char *file)
 {
-	int fd;
-	int **map;
-	int i;
+	int	fd;
+	int	**map;
+	int	i;
 
-	// 파일을 두번 오픈하는 것이 좋지는 않지만(한번 열어서 정보를 저장해놓는 것이 좋다).. ..
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
 		exit(1);
