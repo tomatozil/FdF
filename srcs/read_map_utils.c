@@ -22,6 +22,8 @@ int	ft_atoi(const char *str)
 		ret = ret * 10 + (*str - '0');
 		cnt++;
 		str++;
+		if (ret > 10000)
+			exit (1);
 		if ((cnt > 19 && sign == -1) || (ret < 0 && sign == -1))
 			return ((int)(-9223372036854775807 - 1));
 		else if ((cnt > 19 && sign == 1) || (ret < 0 && sign == 1))

@@ -13,7 +13,7 @@ void    get_height_width(t_data *data, int fd)
 		if (data->width == 0)
 			data->width = width;
 		if (data->width != 0 && width != data->width)
-			exit(-1);
+			exit(1);
 		data->height++;
 		if (line)
 			free(line);
@@ -56,7 +56,7 @@ void fill_map(t_data *data, int **arr, int fd)
 		splited_chars = ft_split(line, ' ');
 		arr[i] = malloc(sizeof(arr[i]) * (data->width));
 		if (!arr[i])
-			exit(-1);
+			exit(1);
 		j = 0;
 		while (splited_chars[j])
 		{
@@ -79,12 +79,12 @@ void    read_map(t_data *data, char *file)
 	// 파일을 두번 오픈하는 것이 좋지는 않지만(한번 열어서 정보를 저장해놓는 것이 좋다).. ..
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		exit(-1);
+		exit(1);
 	get_height_width(data, fd);
 	close(fd);
 	map = malloc(sizeof(map) * (data->height));
 	if (!map)
-		exit(-1);
+		exit(1);
 	i = 0;
 	while (i < data->height)
 	{
