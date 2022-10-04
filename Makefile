@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-MLX_LIB = -lmlx -lm -L ./mlx -framework OpenGL -framework Appkit
+MLX_LIB = -lmlx -framework OpenGL -framework Appkit
 
 NAME = fdf
 NAME_BONUS = fdf_bonus
@@ -41,13 +41,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(MLX_LIB) -I$(HEADERS) $(OBJS) -o $(NAME)
-	cp mlx/$(DYLIB) ./$(DYLIB)
 
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS)
 	$(CC) $(CFLAGS) $(MLX_LIB) -I$(HEADERS_BONUS) $(OBJS_BONUS) -o $(NAME_BONUS)
-	cp mlx/$(DYLIB) ./$(DYLIB)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(HEADERS) -I$(HEADERS_BONUS) -c $< -o $(<:.c=.o)
