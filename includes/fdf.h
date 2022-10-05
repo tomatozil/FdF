@@ -6,12 +6,12 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:01:26 by jiyun             #+#    #+#             */
-/*   Updated: 2022/10/05 11:06:42 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/05 12:35:34 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_FDF_H
-# define FDF_FDF_H
+#ifndef FDF_H
+# define FDF_H
 
 # define TRUE 1
 # define FALSE 0
@@ -30,7 +30,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void	*mlx;
 	void	*win;

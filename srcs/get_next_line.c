@@ -6,23 +6,23 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:38:52 by jiyun             #+#    #+#             */
-/*   Updated: 2022/10/05 10:38:57 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/05 11:39:18 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void free_clean(char **s)
+void	free_clean(char **s)
 {
 	free(*s);
 	*s = NULL;
 }
 
-char *get_line(char **keep)
+char	*get_line(char **keep)
 {
-	char    *ptr_newline;
-	char    *backup_line;
-	char    *ret;
+	char	*ptr_newline;
+	char	*backup_line;
+	char	*ret;
 
 	ptr_newline = ft_strchr(*keep, '\n');
 	backup_line = ft_strdup(ptr_newline + 1);
@@ -32,9 +32,9 @@ char *get_line(char **keep)
 	return (ret);
 }
 
-char *last_line(char **keep)
+char	*last_line(char **keep)
 {
-	char *ret;
+	char	*ret;
 
 	if (ft_strchr(*keep, '\n'))
 		return (get_line(keep));
@@ -47,11 +47,11 @@ char *last_line(char **keep)
 	return (ret);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
-	static char *keep;
-	ssize_t     read_byte; /* over 1 -> read success, 0 -> reach eof, -1 -> read fail */
-	char        *buf;
+	static char	*keep;
+	ssize_t		read_byte;
+	char		*buf;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
@@ -75,28 +75,3 @@ char *get_next_line(int fd)
 		return (last_line(&keep));
 	return (NULL);
 }
-
-
-// int main() // 파일로부터
-// {
-// 	int		fd, line;
-// 	char	*ret;
-//
-// 	fd = open("../gnlTester/files/multiple_nlx5", O_RDONLY);
-// 	line = 0;
-//
-// 	// close(fd); // unvalid fd 일 때,
-//
-// 	while((ret = get_next_line(fd)) > 0)
-// 	{
-// 		printf(">%d : %s", line, ret);
-// 		free(ret);
-// 		line++;
-// 	}
-// 	printf("\n->%d : %s", line, ret); // 마지막 (NULL) 출력
-//
-// 	free(ret);
-// 	close(fd);
-//
-// 	return 0;
-// }

@@ -6,18 +6,16 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:07:05 by jiyun             #+#    #+#             */
-/*   Updated: 2022/10/05 10:38:41 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/05 12:24:54 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	draw_line(t_data *data)
+void	draw_line(t_data *data, int step_x, int step_y)
 {
 	int	delta_x;
 	int	delta_y;
-	int	step_x;
-	int	step_y;
 	int	discriminant;
 
 	delta_x = ft_abs(data->end_x - data->start_x);
@@ -72,13 +70,13 @@ void	draw_img(t_data *data, int x, int y)
 			{
 				set_start(data, x, y);
 				set_end(data, x + 1, y);
-				draw_line(data);
+				draw_line(data, 0, 0);
 			}
 			if (y < data->height - 1)
 			{
 				set_start(data, x, y);
 				set_end(data, x, y + 1);
-				draw_line(data);
+				draw_line(data, 0, 0);
 			}
 			x++;
 		}

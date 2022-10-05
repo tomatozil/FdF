@@ -6,13 +6,13 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:54:53 by jiyun             #+#    #+#             */
-/*   Updated: 2022/10/05 10:54:58 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/05 12:28:24 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf_bonus.h"
 
-void    init_data(t_data *data)
+void	init_data(t_data *data)
 {
 	data->bits_per_pixel = 0;
 	data->size_line = 0;
@@ -22,21 +22,19 @@ void    init_data(t_data *data)
 	data->color = 0xFFFFFF;
 	data->zoom = ZOOM;
 	data->zoom_is_double = 0;
-
-	data->projection = ISOMETRIC; //할 것이다
-
+	data->projection = ISOMETRIC;
 	data->x_shift = 0;
 	data->y_shift = 0;
 }
 
-int red_button(int exitcode)
+int	red_button(int exitcode)
 {
 	exit(exitcode);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_data data;
+	t_data	data;
 
 	if (ac != 2)
 		return (0);
@@ -44,11 +42,12 @@ int main(int ac, char **av)
 	data.mlx = mlx_init();
 	data.win = mlx_new_window(data.mlx, WIDTH, HEIGHT, "FDF");
 	data.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	data.addr = mlx_get_data_addr(data.img, &(data.bits_per_pixel), &(data.size_line), &(data.endian));
+	data.addr = mlx_get_data_addr(data.img, &(data.bits_per_pixel), \
+			&(data.size_line), &(data.endian));
 	read_map(&data, av[1]);
 	draw_img(&data, 0, 0);
 	mlx_hook(data.win, 2, 0, key_press, &data);
-	mlx_hook(data.win, 17, 0, red_button, 0); //ok
+	mlx_hook(data.win, 17, 0, red_button, 0);
 	mlx_loop(data.mlx);
 	exit (0);
 }
