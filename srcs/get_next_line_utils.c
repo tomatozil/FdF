@@ -6,9 +6,10 @@
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 21:00:24 by jiyun             #+#    #+#             */
-/*   Updated: 2022/05/20 17:04:57 by jiyun            ###   ########.fr       */
+/*   Updated: 2022/10/05 10:39:03 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "get_next_line.h"
 
 size_t  ft_strlen(const char *s)

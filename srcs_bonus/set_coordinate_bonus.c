@@ -1,6 +1,15 @@
-//
-// Created by jiyun on 2022/10/03.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_coordinate_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/05 10:58:12 by jiyun             #+#    #+#             */
+/*   Updated: 2022/10/05 10:58:16 by jiyun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf_bonus.h"
 
 static double	get_zoom(t_data *data)
@@ -20,9 +29,9 @@ static double	get_zoom(t_data *data)
 	return (zoom);
 }
 
-void    set_start(t_data *data, int x, int y)
+void	set_start(t_data *data, int x, int y)
 {
-	double  zoom;
+	double	zoom;
 
 	zoom = get_zoom(data);
 	data->start_x = x * zoom;
@@ -39,9 +48,9 @@ void    set_start(t_data *data, int x, int y)
 	data->cur_y = data->start_y;
 }
 
-void    set_end(t_data *data, int x, int y)
+void	set_end(t_data *data, int x, int y)
 {
-	double  zoom;
+	double	zoom;
 
 	zoom = get_zoom(data);
 	data->end_x = x * zoom;

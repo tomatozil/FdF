@@ -1,6 +1,14 @@
-//
-// Created by jiyun on 2022/09/20.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf_bonus.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/05 11:07:18 by jiyun             #+#    #+#             */
+/*   Updated: 2022/10/05 11:10:17 by jiyun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FDF_FDF_H
 # define FDF_FDF_H
@@ -22,77 +30,70 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_data
+typedef struct	s_data
 {
-	void    *mlx;
-	void    *win;
-	void    *img;
-	char    *addr;
-	int	    bits_per_pixel;
-	int	    size_line;
-	int	    endian;
-
-	int     **map;
-
-	int     height;
-	int     width;
-	int     color;
-	double  zoom;
-	int     zoom_is_double;
-
-	int     start_x;
-	int     start_y;
-	int     start_z;
-	int     end_x;
-	int     end_y;
-	int     end_z;
-	int     cur_x;
-	int     cur_y;
-
-	double  x_angle;
-	double  y_angle;
-	double  z_angle;
-
-	int     x_shift;
-	int     y_shift;
-
-	int     projection;
-
-}   t_data;
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+	int		**map;
+	int		height;
+	int		width;
+	int		color;
+	double	zoom;
+	int		zoom_is_double;
+	int		start_x;
+	int		start_y;
+	int		start_z;
+	int		end_x;
+	int		end_y;
+	int		end_z;
+	int		cur_x;
+	int		cur_y;
+	double	x_angle;
+	double	y_angle;
+	double	z_angle;
+	int		x_shift;
+	int		y_shift;
+	int		projection;
+}	t_data;
 
 /* read_map.c */
-void    read_map(t_data *data, char *file);
+void	read_map(t_data *data, char *file);
 
 /* read_map_utils.c */
-int     ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 
 /* draw_img.c */
-void    draw_img(t_data *data, int x, int y);
+void	draw_img(t_data *data, int x, int y);
 
 /* draw_img_utils.c */
-int ft_abs(int a);
-int ft_compare(int a, int b);
-void    *ft_memset(void *b, int c, size_t len);
+int		ft_abs(int a);
+int		ft_compare(int a, int b);
+void	*ft_memset(void *b, int c, size_t len);
 void	my_mlx_pixel_put(t_data *data, int x, int y);
 
 /* set_coordinate.c */
-void    set_start(t_data *data, int x, int y);
-void    set_end(t_data *data, int x, int y);
+void	set_start(t_data *data, int x, int y);
+void	set_end(t_data *data, int x, int y);
 
 /* set_coordinate_utils.c */
-void    rot_x(int *y, int *z, double x_angle);
-void    rot_y(int *x, int *z, double y_angle);
-void    rot_z(int *x, int *y, double z_angle);
-void    isometric(int *x, int *y, int z);
+void	rot_x(int *y, int *z, double x_angle);
+void	rot_y(int *x, int *z, double y_angle);
+void	rot_z(int *x, int *y, double z_angle);
+void	isometric(int *x, int *y, int z);
 
 /* input_handler.c */
-int key_press(int keycode, t_data *data);
+int		key_press(int keycode, t_data *data);
 
 /* get_next_line.c 만들어야 함 */
-char    *get_next_line(int fd);
+char	*get_next_line(int fd);
 
 /* split.c */
 size_t	cnt_strs(char const *str, char c);
 char	**ft_split(char const *s, char c);
 
-#endif //FDF_FDF_H
+#endif

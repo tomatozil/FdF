@@ -1,9 +1,18 @@
-//
-// Created by jiyun on 2022/10/03.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_coordinate_utils_bonus.c                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/05 10:58:19 by jiyun             #+#    #+#             */
+/*   Updated: 2022/10/05 10:58:26 by jiyun            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf_bonus.h"
 
-void rot_x(int *y, int *z, double x_angle)
+void	rot_x(int *y, int *z, double x_angle)
 {
 	int	temp_y;
 
@@ -12,7 +21,7 @@ void rot_x(int *y, int *z, double x_angle)
 	*z = -temp_y * sin(x_angle) + *z * cos(x_angle);
 }
 
-void rot_y(int *x, int *z, double y_angle)
+void	rot_y(int *x, int *z, double y_angle)
 {
 	int	temp_x;
 
@@ -21,7 +30,7 @@ void rot_y(int *x, int *z, double y_angle)
 	*z = -temp_x * sin(y_angle) + *z * cos(y_angle);
 }
 
-void rot_z(int *x, int *y, double z_angle)
+void	rot_z(int *x, int *y, double z_angle)
 {
 	int	temp_x;
 
@@ -30,7 +39,7 @@ void rot_z(int *x, int *y, double z_angle)
 	*y = -temp_x * sin(z_angle) + *y * cos(z_angle);
 }
 
-void isometric(int *x, int *y, int z)
+void	isometric(int *x, int *y, int z)
 {
 	int	temp_x;
 	int	temp_y;

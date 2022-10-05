@@ -1,17 +1,15 @@
-//
-// Created by jiyun on 2022/09/24.
-//
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   split_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiyun <jiyun@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 17:10:13 by jiyun             #+#    #+#             */
-/*   Updated: 2022/03/29 16:47:25 by jiyun            ###   ########.fr       */
+/*   Created: 2022/10/05 10:58:32 by jiyun             #+#    #+#             */
+/*   Updated: 2022/10/05 10:58:37 by jiyun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "fdf_bonus.h"
 
 static void	free_all(char **ret)
@@ -65,7 +63,6 @@ size_t	cnt_strs(char const *str, char c)
 	}
 	return (cnt);
 }
-
 
 static char	**malloc_ret(char const *s, char c, size_t *size)
 {
